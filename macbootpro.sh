@@ -30,6 +30,9 @@ echo "> Adjusting macOS defaults..."
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true  # Expand save panel by default
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false  # Don't complain when changing file extensions
 
+echo "> Setting Dark mode..."
+defaults write "Apple Global Domain" AppleInterfaceStyle Dark
+
 echo "> Configure Menu bar..."
 defaults write com.apple.menuextra.clock DateFormat -string "EEE d MMM  HH:mm:ss"
 defaults write com.apple.menuextra.battery ShowPercent YES
