@@ -20,6 +20,10 @@ brew install mas
 echo "> Applying Brewfile..."
 brew bundle
 
+echo "> Install Python utils..."
+pip2 install -r requirements.txt
+pip3 install -r requirements.txt
+
 
 ## Set macOS defaults
 echo "> Adjusting macOS defaults..."
