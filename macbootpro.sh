@@ -28,6 +28,7 @@ pip3 install -r requirements.txt
 ## Set macOS defaults
 echo "> Adjusting macOS defaults..."
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true  # Expand save panel by default
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true  # Finder: show all filename extensions
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false  # Don't complain when changing file extensions
 
 echo "> Setting Dark mode..."
@@ -68,6 +69,9 @@ defaults write com.apple.dock wvous-tr-modifier -int 0
 # bottom right screen corner - show Desktop
 defaults write com.apple.dock wvous-br-corner -int 4
 defaults write com.apple.dock wvous-br-modifier -int 0
+
+echo "> Configure Calendar..."
+defaults write com.apple.iCal "first day of week" -int 1
 
 
 ## Configure apps
