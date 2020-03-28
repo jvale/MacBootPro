@@ -3,6 +3,29 @@
 set -e
 
 
+## Basic options and setup
+
+function show_help ()
+{
+    echo "Usage:"
+    echo -e "\t-h: help"
+    echo -e "\t-e: also install extra Brewfile (Brewfile.extra)"
+}
+
+INSTALL_EXTRA=0
+
+while getopts "h?e?" opt; do
+    case "$opt" in
+    h|\?)
+        show_help
+        exit 0
+        ;;
+    e)  INSTALL_EXTRA=1
+        ;;
+    esac
+done
+
+
 ## Install apps
 echo "> Checking Homebrew..."
 if ! which -s brew
@@ -19,6 +42,12 @@ brew install mas
 
 echo "> Applying Brewfile..."
 brew bundle
+
+if [ $INSTALL_EXTRA -ne 0 ]
+then
+    echo "> Applying extra Brewfile..."
+    brew bundle --file Brewfile.extra
+fi
 
 echo "> Install Python utils..."
 pip2 install -r requirements.txt
