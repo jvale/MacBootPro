@@ -3,3 +3,4 @@ brew "exiftool"
 
 # apps
 cask "discord"
+cask "send-to-kindle"

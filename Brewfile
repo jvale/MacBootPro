@@ -8,10 +8,13 @@ brew "openssl@1.1"
 brew "ssh-copy-id"
 brew "telnet"
 brew "vim"
+tap "raggi/ale"
+brew "openssl-osx-ca", restart_service: true
 
 # misc utils
 brew "ansible"
 brew "ipcalc"
+brew "jq"
 brew "the_silver_searcher"
 
 # dev
