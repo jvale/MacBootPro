@@ -18,10 +18,9 @@ brew "jq"
 brew "the_silver_searcher"
 
 # dev
-tap "jvale/python2"
-brew "python@2"
+#tap "jvale/python2"
+#brew "python@2"
 brew "python@3.8"
-cask "chef/chef/chefdk"
 cask "docker"
 cask "miniconda"
 cask "virtualbox"
