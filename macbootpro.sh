@@ -50,7 +50,7 @@ then
 fi
 
 echo "> Install Python utils..."
-pip2 install -r requirements.txt
+#pip2 install -r requirements.txt
 pip3 install -r requirements.txt
 
 
