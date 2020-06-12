@@ -50,8 +50,7 @@ then
 fi
 
 echo "> Install Python utils..."
-#pip2 install -r requirements.txt
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 
 
 ## Set macOS defaults
