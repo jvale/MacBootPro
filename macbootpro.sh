@@ -51,6 +51,7 @@ fi
 
 echo "> Install Python utils..."
 pip install -r requirements.txt
+echo "virtualenv" > $(pyenv root)/default-packages
 
 
 ## Set macOS defaults

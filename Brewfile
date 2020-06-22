@@ -20,6 +20,7 @@ brew "the_silver_searcher"
 # dev
 brew "python"
 brew "pyenv-virtualenvwrapper"
+brew 'jawshooah/pyenv/pyenv-default-packages', args: ['HEAD']
 cask "docker"
 cask "virtualbox"
 
