@@ -22,6 +22,7 @@ brew "python"
 brew "pyenv-virtualenvwrapper"
 brew 'jawshooah/pyenv/pyenv-default-packages', args: ['HEAD']
 cask "docker"
+cask "vagrant"
 cask "virtualbox"
 
 # apps
