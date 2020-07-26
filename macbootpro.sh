@@ -50,8 +50,10 @@ then
 fi
 
 echo "> Install Python utils..."
+source ~/.bash_profile  # make sure paths and etc are up-to-date
 pip install -r requirements.txt
 echo "virtualenv" > $(pyenv root)/default-packages
+source ~/.bash_profile  # make sure virtualenv and friends are loaded
 
 
 ## Set macOS defaults
