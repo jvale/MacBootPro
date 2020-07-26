@@ -26,6 +26,7 @@ cask "vagrant"
 cask "virtualbox"
 
 # apps
+cask "google-chrome"
 cask "firefox"
 cask "iterm2"
 cask "rambox"
