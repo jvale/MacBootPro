@@ -7,6 +7,7 @@ brew "git"
 brew "openssl@1.1"
 brew "ssh-copy-id"
 brew "telnet"
+brew "tree"
 brew "vim"
 tap "raggi/ale"
 brew "openssl-osx-ca", restart_service: true
