@@ -68,6 +68,8 @@ defaults write "Apple Global Domain" AppleInterfaceStyle Dark
 echo "> Configure Menu bar..."
 defaults write com.apple.menuextra.clock DateFormat -string "EEE d MMM  HH:mm:ss"
 defaults write com.apple.menuextra.battery ShowPercent YES
+sudo defaults write /Library/Preferences/.GlobalPreferences MultipleSessionEnabled -bool NO  # Remove Fast User Switching from menu bar
+sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search  # Remove Spotlight from menu bar
 defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Volume.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Clock.menu"
 
 echo "> Configure Dock..."
@@ -120,6 +122,8 @@ defaults write com.clipy-app.Clipy loginItem -int 1
 
 echo "> Configure Rectangle"
 defaults write com.knollsoft.Rectangle launchOnLogin -int 1
+defaults write com.knollsoft.Rectangle hideMenubarIcon -int 1
+defaults write com.knollsoft.Rectangle SUEnableAutomaticChecks -int 1
 
 echo "> Configure iTerm"
 defaults write com.googlecode.iterm2 HideTab -int 0
