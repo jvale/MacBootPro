@@ -39,6 +39,7 @@ mas "Owly", id: 882812218
 mas "Todoist", id: 585829637
 
 # misc apps
+cask "appcleaner"
 cask "clipy"
 cask "rectangle"  # spectacle successor?
 cask "muzzle"
