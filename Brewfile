@@ -1,7 +1,7 @@
 # *nix stuff
 brew "bash"
 brew "bash-completion"
-brew "curl-openssl"
+brew "curl"
 brew "coreutils"
 brew "git"
 brew "openssl@1.1"
@@ -35,7 +35,6 @@ cask "iterm2"
 cask "rambox"
 cask "spotify"
 cask "visual-studio-code"
-mas "Evernote", id: 406056744
 mas "Owly", id: 882812218
 mas "Todoist", id: 585829637
 
@@ -43,4 +42,3 @@ mas "Todoist", id: 585829637
 cask "appcleaner"
 cask "clipy"
 cask "rectangle"  # spectacle successor?
-cask "muzzle"

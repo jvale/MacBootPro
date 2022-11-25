@@ -69,7 +69,7 @@ echo "> Configure Menu bar..."
 defaults write com.apple.menuextra.clock DateFormat -string "EEE d MMM  HH:mm:ss"
 defaults write com.apple.menuextra.battery ShowPercent YES
 sudo defaults write /Library/Preferences/.GlobalPreferences MultipleSessionEnabled -bool NO  # Remove Fast User Switching from menu bar
-sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search  # Remove Spotlight from menu bar
+defaults delete com.apple.Spotlight "NSStatusItem Visible Item-0" # Remove Spotlight from menu bar
 defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Volume.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Clock.menu"
 
 echo "> Configure Dock..."
@@ -81,7 +81,7 @@ defaults write com.apple.dock tilesize -int 48
 echo "> Configure Keyboard..."
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false  # Disable automatic quotes
 defaults write -g ApplePressAndHoldEnabled -bool false  # Disable Character picker
-defaults write -g InitialKeyRepeat -int 25  # Repeat rate, minimum in UI
+defaults write -g InitialKeyRepeat -int 68  # Repeat rate
 defaults write -g KeyRepeat -int 2  # Repeat rate, minumum in UI
 
 echo "> Enable trackpad tap to click..."
@@ -118,6 +118,7 @@ defaults write com.clipy-app.Clipy kCPYPrefShowIconInTheMenuKey -int 0
 defaults write com.clipy-app.Clipy menuItemsAreMarkedWithNumbers -int 0
 defaults write com.clipy-app.Clipy kCPYPrefNumberOfItemsPlaceInlineKey -int 20
 defaults write com.clipy-app.Clipy kCPYPrefNumberOfItemsPlaceInsideFolderKey -int 20
+defaults write com.clipy-app.Clipy kCPYPrefShowStatusItemKey -int 0
 defaults write com.clipy-app.Clipy loginItem -int 1
 
 echo "> Configure Rectangle"
