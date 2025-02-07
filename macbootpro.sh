@@ -155,16 +155,7 @@ defaults write com.googlecode.iterm2 HideTab -int 0
 defaults write com.googlecode.iterm2 StatusBarPosition -int 1
 
 echo "> Configure VS Code"
-VSCODE_SETTINGS="$HOME/Library/Application Support/Code/User/settings.json"
-if test -s "$VSCODE_SETTINGS"
-then
-    echo "VS Code settings file already exists, skipping"
-else
-    code --install-extension Shan.code-settings-sync
-    cat <<EOF > "$VSCODE_SETTINGS"
-    {
-        "sync.removeExtensions": false,
-        "sync.gist": "366789c5627379c6b831ecc4a624e4a4",
-    }
-EOF
-fi
+for item in $(cat vscode_extensions.txt); do
+    code --install-extension "$item" --force
+done
+echo "Check this link to sync settings: https://code.visualstudio.com/docs/editor/settings-sync"
