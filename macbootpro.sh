@@ -126,6 +126,11 @@ defaults write com.knollsoft.Rectangle launchOnLogin -int 1
 defaults write com.knollsoft.Rectangle hideMenubarIcon -int 1
 defaults write com.knollsoft.Rectangle SUEnableAutomaticChecks -int 1
 
+echo "> Configure Owly"
+defaults read com.fiplab.owly >/dev/null 2>&1 || open /Applications/Owly.app
+defaults write com.fiplab.owly StartAtLogin -int 1
+defaults write com.fiplab.owly ShowWelcomeWindow -int 0
+
 echo "> Configure iTerm"
 defaults write com.googlecode.iterm2 HideTab -int 0
 defaults write com.googlecode.iterm2 StatusBarPosition -int 1
