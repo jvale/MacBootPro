@@ -114,6 +114,7 @@ defaults write com.apple.iCal "first day of week" -int 1
 
 ## Configure apps
 echo "> Configure Clipy"
+defaults read com.clipy-app.Clipy >/dev/null 2>&1 || open /Applications/Clipy.app
 defaults write com.clipy-app.Clipy kCPYPrefShowIconInTheMenuKey -int 0
 defaults write com.clipy-app.Clipy menuItemsAreMarkedWithNumbers -int 0
 defaults write com.clipy-app.Clipy kCPYPrefNumberOfItemsPlaceInlineKey -int 20
@@ -122,9 +123,12 @@ defaults write com.clipy-app.Clipy kCPYPrefShowStatusItemKey -int 0
 defaults write com.clipy-app.Clipy loginItem -int 1
 
 echo "> Configure Rectangle"
+defaults read com.knollsoft.Rectangle >/dev/null 2>&1 || open /Applications/Rectangle.app
 defaults write com.knollsoft.Rectangle launchOnLogin -int 1
 defaults write com.knollsoft.Rectangle hideMenubarIcon -int 1
 defaults write com.knollsoft.Rectangle SUEnableAutomaticChecks -int 1
+defaults write com.knollsoft.Rectangle internalTilingNotified -int 1
+defaults write com.knollsoft.Rectangle windowSnapping -int 2
 
 echo "> Configure Owly"
 defaults read com.fiplab.owly >/dev/null 2>&1 || open /Applications/Owly.app
