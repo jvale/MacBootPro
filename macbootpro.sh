@@ -61,13 +61,13 @@ echo "> Adjusting macOS defaults..."
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true  # Expand save panel by default
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true  # Finder: show all filename extensions
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false  # Don't complain when changing file extensions
+defaults write "Apple Global Domain" NSQuitAlwaysKeepsWindows -int 1  # Keep windows when quitting an application
 
 echo "> Setting Dark mode..."
 defaults write "Apple Global Domain" AppleInterfaceStyle Dark
 
 echo "> Configure Menu bar..."
-defaults write com.apple.menuextra.clock DateFormat -string "EEE d MMM  HH:mm:ss"
-defaults write com.apple.menuextra.battery ShowPercent YES
+defaults write com.apple.menuextra.clock ShowSeconds -int 1
 sudo defaults write /Library/Preferences/.GlobalPreferences MultipleSessionEnabled -bool NO  # Remove Fast User Switching from menu bar
 defaults delete com.apple.Spotlight "NSStatusItem Visible Item-0" # Remove Spotlight from menu bar
 defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Volume.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Clock.menu"
@@ -81,13 +81,28 @@ defaults write com.apple.dock tilesize -int 48
 echo "> Configure Keyboard..."
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false  # Disable automatic quotes
 defaults write -g ApplePressAndHoldEnabled -bool false  # Disable Character picker
-defaults write -g InitialKeyRepeat -int 68  # Repeat rate
+defaults write -g InitialKeyRepeat -int 25  # Repeat delay
 defaults write -g KeyRepeat -int 2  # Repeat rate, minumum in UI
+# Map CapsLock to Escape
+defaults -currentHost write -g com.apple.keyboard.modifiermapping.1452-833-0 -array \
+'<dict>
+    <key>HIDKeyboardModifierMappingDst</key>
+    <integer>30064771113</integer>
+    <key>HIDKeyboardModifierMappingSrc</key>
+    <integer>30064771129</integer>
+</dict>'
 
-echo "> Enable trackpad tap to click..."
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+echo "> Configure trackpad..."
+# Tap to click
+defaults write com.apple.AppleMultitouchTrackpad Clicking -int 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -int 1
+# App Expose
+defaults write com.apple.dock showAppExposeGestureEnabled -int 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture -int 2
+# Scroll zoom
+defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
+defaults write com.apple.AppleMultitouchTrackpad HIDScrollZoomModifierMask -int 262144
+defaults write com.apple.com.apple.driver.AppleBluetoothMultitouch.trackpad HIDScrollZoomModifierMask -int 262144
 
 echo "> Configure Hot Corners..."
 # Top left screen corner - Application windows
@@ -109,7 +124,7 @@ echo "Enabling snap-to-grid for icons on the desktop and in other icon views"
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 
 echo "> Configure Calendar..."
-defaults write com.apple.iCal "first day of week" -int 1
+defaults write com.apple.iCal "first day of week" -int 2  # Monday
 
 
 ## Configure apps
