@@ -25,9 +25,7 @@ brew "python"
 brew "pyenv-virtualenvwrapper"
 tap "jawshooah/pyenv"
 brew 'jawshooah/pyenv/pyenv-default-packages', args: ['HEAD']
-cask "docker"
-cask "vagrant"
-cask "virtualbox"
+cask "rancher"
 
 # apps
 cask "google-chrome"
