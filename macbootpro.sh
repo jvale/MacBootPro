@@ -50,10 +50,32 @@ then
 fi
 
 echo "> Install Python utils..."
-source ~/.bash_profile  # make sure paths and etc are up-to-date
-pip install -r requirements.txt
-echo "virtualenv" > $(pyenv root)/default-packages
-source ~/.bash_profile  # make sure virtualenv and friends are loaded
+source ~/.bash_profile  # make sure paths and env is up-to-date
+
+if [ -z $WORKON_HOME ]
+then
+    echo ">> virtualenv: configuring..."
+    echo "## virtualenv" >> ~/.bash_profile
+    echo "source /opt/homebrew/bin/virtualenvwrapper.sh" >> ~/.bash_profile
+    echo "export WORKON_HOME=$HOME/.virtualenvs" >> ~/.bash_profile
+    source ~/.bash_profile  # make sure paths and env is up-to-date
+else
+    echo ">> virtualenv: already configured!"
+fi
+
+if [ -z $PYENV_ROOT ]
+then
+    echo ">> pyenv: configuring..."
+    echo "## pyenv" >> ~/.bash_profile
+    echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
+    echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
+    echo 'eval "$(pyenv init - bash)"' >> ~/.bash_profile
+    source ~/.bash_profile  # make sure paths and env is up-to-date
+    echo "virtualenv" > $(pyenv root)/default-packages
+    source ~/.bash_profile  # make sure virtualenv and friends are loaded
+else
+    echo ">> pyenv: already configured!"
+fi
 
 
 ## Set macOS defaults

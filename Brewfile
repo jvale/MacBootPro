@@ -22,6 +22,9 @@ brew "the_silver_searcher"
 
 # dev
 brew "python"
+brew "flake8"
+brew "ipython"
+brew "virtualenvwrapper"
 brew "pyenv-virtualenvwrapper"
 tap "jawshooah/pyenv"
 brew 'jawshooah/pyenv/pyenv-default-packages', args: ['HEAD']
