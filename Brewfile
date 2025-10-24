@@ -18,7 +18,7 @@ brew "openssl-osx-ca", restart_service: true
 brew "ansible"
 brew "ipcalc"
 brew "jq"
-brew "the_silver_searcher"
+brew "ripgrep"
 
 # dev
 brew "python"
