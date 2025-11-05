@@ -26,6 +26,16 @@ while getopts "h?e?" opt; do
 done
 
 
+## Set shell
+DESIRED_SHELL="/bin/bash"
+if [[ $SHELL != $DESIRED_SHELL ]]
+then
+  echo "Setting shell to $DESIRED_SHELL"
+  chsh -s $DESIRED_SHELL
+  $DESIRED_SHELL --login
+fi
+
+
 ## Install apps
 echo "> Checking Homebrew..."
 if ! which -s brew
@@ -50,7 +60,7 @@ then
 fi
 
 echo "> Install Python utils..."
-source ~/.bash_profile  # make sure paths and env is up-to-date
+test -f ~/.bash_profile && source ~/.bash_profile  # make sure paths and env is up-to-date
 
 if [ -z $WORKON_HOME ]
 then
